@@ -3,7 +3,7 @@ import NavBarButton from './buttons/NavBarButton.vue';
 </script>
 
 <template>
-    <div class="nav">
+    <div class="navList">
         <NavBarButton title="productos" />
         <NavBarButton title="productos" />
         <NavBarButton title="productos" />
@@ -11,15 +11,15 @@ import NavBarButton from './buttons/NavBarButton.vue';
 </template>
 
 <style lang="scss" scoped>
-.nav {
-    width: 40%;
-    border: 1px solid red;
-    height: 100%;
+.navList {
+    width: 250px;
+    height: 40%;
     display: flex;
     gap: 5px;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 50px;
+    justify-content: center;
     flex-wrap: nowrap;
 }
 </style>

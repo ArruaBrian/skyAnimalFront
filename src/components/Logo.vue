@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-    size: Number,
+    size: String,
 });
 </script>
 
@@ -65,11 +65,11 @@ defineProps({
 
 <style scoped lang="scss">
 svg {
-    fill: #09080e;
+    fill: #636b97;
     transition: all 0.5s ease-in-out;
 
     &:hover {
-        fill: #c44536;
+        fill: #f5707d;
         animation: jello-horizontal 0.9s linear both;
     }
 }

@@ -11,17 +11,16 @@ import NavBar from './components/NavBar.vue';
 
 <style scoped>
 #main {
-    background-color: #f5f4f4;
+    background-color: #3f4365;
     width: 100%;
     height: 1200px;
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+
+    align-items: flex-start;
     gap: 10px;
-    flex-wrap: nowrap;
-    background-image: url('../public/HomeBackground.png');
-    background-size: cover;
-    background-position: 0px -240px;
+    border: red 1px solid;
 }
 </style>
