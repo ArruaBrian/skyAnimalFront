@@ -4,24 +4,26 @@ import Logo from './Logo.vue';
 import NavBarList from './NavBarList.vue';
 import ArrowButton from './buttons/ArrowButton.vue';
 
-const show = ref({
-    value: true,
+const show = ref(true);
 
-    showEvent: function () {
-        this.value = !this.value;
-    },
-});
+const showEvent = () => {
+    show.value = !show.value;
+};
 </script>
 
 <template>
-    <div :class="`nav ${show.value ? 'navShow' : 'navHidden'}`">
+    <div :class="`nav ${show ? 'navShow' : 'navHidden'}`">
         <div class="navContainer">
             <div class="logoContainer">
-                <Logo :size="`${show.value ? '60px' : '40px'}`" />
-                <button @click="show.showEvent">show</button>
-                <ArrowButton @prueba-event="show.showEvent" size="20px" />
+                <Logo :size="`${show ? '60px' : '40px'}`" />
+                <ArrowButton
+                    @showEvent="showEvent"
+                    size="25px"
+                    :isActive="show"
+                />
             </div>
-            <NavBarList />
+
+            <NavBarList :isActive="show" />
         </div>
     </div>
 </template>
@@ -34,7 +36,6 @@ const show = ref({
     position: fixed;
     box-sizing: border-box;
     padding: 10px;
-    border: red 1px solid;
     transition: all 0.5s ease-in-out;
 }
 
@@ -53,10 +54,11 @@ const show = ref({
 }
 
 .navContainer {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-basis: 10px;
     align-items: center;
 }
 

@@ -1,13 +1,19 @@
 <script setup>
-defineProps({
+import { toRef } from 'vue';
+
+const props = defineProps({
     size: String,
-    active: Boolean,
+    isActive: Boolean,
 });
+
+const localIsActive = toRef(props, 'isActive');
 </script>
 
 <template>
-    <div class="arrowButton" @click="$emit('prueba')">
+    <div class="arrowButton" @click="$emit('showEvent')">
         <svg
+            class="arrow"
+            :class="`${!localIsActive ? 'isArrowInactive' : 'isArrowActive'}`"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
             :width="size"
@@ -22,6 +28,31 @@ defineProps({
 
 <style scoped lang="scss">
 .arrowButton {
-    margin: auto;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    fill: #636b97;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        fill: #f5707d;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.isArrowActive {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+}
+
+.isArrowInactive {
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in-out;
 }
 </style>

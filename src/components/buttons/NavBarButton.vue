@@ -1,29 +1,91 @@
 <script setup>
-defineProps({
+import { toRef } from 'vue';
+
+const props = defineProps({
     title: String,
+    isActive: Boolean,
+    iconComponent: Function,
 });
+
+const isActiveLocal = toRef(props, 'isActive');
 </script>
 
 <template>
-    <button class="button">{{ title }}</button>
+    <div class="buttonContainer">
+        <component class="navIconButton" :is="iconComponent" size="25px" />
+        <div
+            class="magicContainer"
+            :class="`${!isActiveLocal ? 'magicShow' : 'magicHidden'}`"
+        >
+            <button class="navButton">{{ title }}</button>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../../style.scss';
 
-.button {
-    @extend .text;
+.navButton {
+    @extend .btn;
 
     background-color: transparent;
-
     border: none;
+    position: relative;
     padding: 9px 16px;
     border-radius: 5px;
     box-sizing: border-box;
+    color: #636b97;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
 
-    &:hover {
-        color: #c44536;
+.navIconButton {
+    fill: #636b97;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttonContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover .navButton {
+        color: #f5707d;
+        fill: #f5707d;
+        transition: all 0.5s ease-in-out;
     }
+
+    &:hover .navIconButton {
+        fill: #f5707d;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+.magicContainer {
+    width: auto;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.magicShow {
+    width: 0%;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.magicHidden {
+    width: 50%;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
 }
 </style>
