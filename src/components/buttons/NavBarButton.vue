@@ -4,7 +4,7 @@ import { toRef } from 'vue';
 const props = defineProps({
     title: String,
     isActive: Boolean,
-    iconComponent: Function,
+    iconComponent: Object,
 });
 
 const isActiveLocal = toRef(props, 'isActive');

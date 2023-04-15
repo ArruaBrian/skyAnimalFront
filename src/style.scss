@@ -8,48 +8,64 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;500;600;700&display=swap');
 
-/* Font Stles ================================================================================= */
+/* Font Styles ================================================================================= */
 
-.title{
-
-  font-family: 'Fjalla One';
-  font-size: 36px;
-  color: #09080E;
-
+.title {
+    font-family: 'Fjalla One';
+    font-size: 2.25rem;
+    color: #09080e;
 }
 
-.sub{
-
-  font-family: 'Oswald';
-  font-size: 24px;
-  color: #21232E;
-  font-weight: 400;
-
+.sub {
+    font-family: 'Oswald';
+    font-size: 1.5rem;
+    color: #21232e;
+    font-weight: 400;
 }
 
-.p{
-
-  font-family: 'Oswald';
-  font-size: 20px;
-  color: #21232E;
-  font-weight: 300;
-
+.p {
+    font-family: 'Oswald';
+    font-size: 1.25rem;
+    color: #21232e;
+    font-weight: 300;
 }
 
-.text{
-
-  font-family: 'Oswald';
-  font-size: 20px;
-  color: #21232E;
-  font-weight: 300;
-
+.text {
+    font-family: 'Oswald';
+    font-size: 1.25rem;
+    color: #21232e;
+    font-weight: 300;
 }
 
-.btn{
-
-  font-family: 'Oswald';
-  font-size: 20px;
-  color: #21232E;
-  font-weight: 400;
+.error {
+    font-family: 'Oswald';
+    font-size: 3.688;
+    color: #ff0022;
+    font-weight: 300;
 }
 
+.btn {
+    font-family: 'Oswald';
+    font-size: 1.25rem;
+    color: #21232e;
+    font-weight: 400;
+}
+
+/* Colors ================================================================================= */
+
+$theme-colors: (
+    'black': #2b304d,
+    'black2': #3f4365,
+    'black3': #636b97,
+    'white': #f5f5f5,
+    'red': #f5707d,
+    'red2': #bd6981,
+    'red3': #6e5675,
+    'error': #ff0019,
+);
+
+@each $name, $valor in $theme-colors {
+    .color-#{$name} {
+        color: #{$valor};
+    }
+}

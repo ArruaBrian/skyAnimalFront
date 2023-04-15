@@ -29,7 +29,6 @@ const localIsActive = toRef(props, 'isActive');
 <style scoped lang="scss">
 .arrowButton {
     width: 40px;
-    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;

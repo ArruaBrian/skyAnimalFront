@@ -6,6 +6,7 @@ import NosotrosIcon from './NosotrosIcon.vue';
 import GiftIcon from './GiftIcon.vue';
 import ContactIcon from './ContactIcon.vue';
 import CartIcon from './CartIcon.vue';
+import ShowerIcon from './ShowerIcon.vue';
 
 const props = defineProps({
     isActive: Boolean,
@@ -38,6 +39,12 @@ const isActiveLocal = toRef(props, 'isActive');
         />
 
         <NavBarButton
+            :iconComponent="ShowerIcon"
+            title="Turnos"
+            :isActive="isActiveLocal"
+        />
+
+        <NavBarButton
             :iconComponent="CartIcon"
             title="Carrito"
             :isActive="isActiveLocal"
@@ -47,14 +54,14 @@ const isActiveLocal = toRef(props, 'isActive');
 
 <style lang="scss" scoped>
 .navList {
-    width: 250px;
-    height: 40%;
+    grid-area: list;
+    width: 100%;
+    height: 100%;
     display: flex;
-    gap: 5px;
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: nowrap;
 }
 </style>
