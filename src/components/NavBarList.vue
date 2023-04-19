@@ -21,33 +21,39 @@ const isActiveLocal = toRef(props, 'isActive');
             :iconComponent="StoreIcon"
             title="Productos"
             :isActive="isActiveLocal"
+            route="/productos"
         />
         <NavBarButton
             :iconComponent="NosotrosIcon"
             title="Nosotros"
             :isActive="isActiveLocal"
+            route="/nosotros"
         />
         <NavBarButton
             :iconComponent="GiftIcon"
             title="Premios"
             :isActive="isActiveLocal"
+            route="/premios"
         />
         <NavBarButton
             :iconComponent="ContactIcon"
             title="Contacto"
             :isActive="isActiveLocal"
+            route="/contacto"
         />
 
         <NavBarButton
             :iconComponent="ShowerIcon"
             title="Turnos"
             :isActive="isActiveLocal"
+            route="/turnos"
         />
 
         <NavBarButton
             :iconComponent="CartIcon"
             title="Carrito"
             :isActive="isActiveLocal"
+            route="/carrito"
         />
     </div>
 </template>

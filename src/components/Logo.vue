@@ -1,7 +1,15 @@
 <script setup>
+import { useRouter } from 'vue-router';
+
 defineProps({
     size: String,
 });
+
+const router = useRouter();
+
+const pushTo = (route) => {
+    router.push(route);
+};
 </script>
 
 <template>
@@ -11,6 +19,7 @@ defineProps({
         viewBox="0 0 180 178"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        @click="pushTo('/')"
     >
         <path
             d="M98.4105 0.354398C119.683 2.31833 138.242 10.7443 154.085 25.6324C166.134 36.9598 173.981 50.7184 177.625 66.9084C178.999 

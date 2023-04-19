@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from '@vue/reactivity';
-import { toRef, ref } from 'vue';
+import { toRef } from 'vue';
 
 const props = defineProps({
     type: String,

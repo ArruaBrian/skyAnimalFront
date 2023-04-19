@@ -1,17 +1,25 @@
 <script setup>
 import { toRef } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
     title: String,
     isActive: Boolean,
     iconComponent: Object,
+    route: String,
 });
+
+const router = useRouter();
+
+const pushTo = (route) => {
+    router.push(route);
+};
 
 const isActiveLocal = toRef(props, 'isActive');
 </script>
 
 <template>
-    <div class="buttonContainer">
+    <div class="buttonContainer" @click="pushTo(`${route}`)">
         <component class="navIconButton" :is="iconComponent" size="25px" />
         <div
             class="magicContainer"
